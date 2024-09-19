@@ -30,21 +30,19 @@ public class Hotel_Booking_steps {
         BookingConfirm = new Booking_Confirm(driver);
         BookingItinerary = new Booking_Itinerary(driver);
     }
-
     @When("I log in with username {string} and password {string}")
     public void i_log_in_with_username_and_password(String username, String password) {
         loginPage.enterUsername(username);
         loginPage.enterPassword(password);
         loginPage.clickLogin();
     }
-
     @Then("I verifies the new page contains expected URL")
     public void iVerifiesTheNewPageContainsExpectedURL() {
         String currentUrl = driver.getCurrentUrl();
-        boolean contains = currentUrl.contains("SearchHotel.php");
+        boolean contains = false;
+        if (currentUrl != null) contains = currentUrl.contains("SearchHotel.php");
         Assert.assertTrue(currentUrl,contains);
     }
-
     @And("I verifies the new page contains expected text")
     public void iVerifiesTheNewPageContainsExpectedText() {
         loginPage.text();
@@ -85,6 +83,7 @@ public class Hotel_Booking_steps {
     @Then("I verifies the new page contains expected book URL")
     public void iVerifiesTheNewPageContainsExpectedBookURL() {
         String bkURL = driver.getCurrentUrl();
+        assert bkURL != null;
         boolean BookURl = bkURL.contains("BookHotel.php");
         Assert.assertTrue(BookURl);
     }
@@ -122,7 +121,9 @@ public class Hotel_Booking_steps {
     @Then("I verifies the new page contains expected booking URL")
     public void iVerifiesTheNewPageContainsExpectedBookingURL() throws InterruptedException {
         String BookingURl = driver.getCurrentUrl();
-        boolean contains = BookingURl.contains("BookingConfirm.php");
+        boolean contains;
+        if (BookingURl != null) contains = BookingURl.contains("BookingConfirm.php");
+        else contains = false;
         Assert.assertTrue(contains);
         Thread.sleep(3000);
     }

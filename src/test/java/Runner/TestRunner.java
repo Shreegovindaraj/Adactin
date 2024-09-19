@@ -8,7 +8,6 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"src\\test\\java\\Features\\Adactin.feature"},
         glue = {"Step","Hooks"},
-        dryRun = false,
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         tags = "@SmokeTest",
        plugin = {"pretty", "html:target/cucumber.html",  // Reports

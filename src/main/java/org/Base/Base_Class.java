@@ -5,11 +5,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.io.FileHandler;
-
 import java.io.File;
 import java.io.IOException;
-import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 public class Base_Class {
 
@@ -34,7 +31,6 @@ public class Base_Class {
             System.out.println("Failed to capture screenshot: " + e.getMessage());
         }
     }
-
     public void tearDown() {
         if (driver != null) {
             driver.quit();

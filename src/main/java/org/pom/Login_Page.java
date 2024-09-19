@@ -3,7 +3,6 @@ package org.pom;
 import org.Base.Base_Class;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.FindBy;
 
 public class Login_Page extends Base_Class {
     WebDriver driver;
